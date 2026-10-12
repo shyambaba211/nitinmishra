@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Education Community | Learn & Grow</title>
+  <meta name="description" content="Join our educational community for useful learning resources, educational information, helpful tips and regular updates.">
+  <meta name="theme-color" content="#07111f">
+
+  <style>
+    :root {
+      --bg: #050b16;
+      --panel: #0d1a2d;
+      --gold: #f7c968;
+      --gold-light: #ffe5a0;
+      --text: #f6f8fc;
+      --muted: #aab7ca;
+      --blue: #229ed9;
+      --border: rgba(255,255,255,.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 0%, #163358 0%, transparent 48%),
+        linear-gradient(145deg, #050b16, #091426 55%, #050b16);
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+      position: relative;
+    }
+
+    .top-line {
+      width: 75px;
+      height: 4px;
+      margin: 0 auto 20px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--gold), #fff0bd);
+      box-shadow: 0 0 20px rgba(247,201,104,.25);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px 23px 24px;
+      border: 1px solid rgba(247,201,104,.25);
+      border-radius: 26px;
+      background: linear-gradient(
+        160deg,
+        rgba(18,36,61,.98),
+        rgba(7,15,29,.98)
+      );
+      box-shadow: 0 24px 75px rgba(0,0,0,.42);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      top: -145px;
+      right: -100px;
+      border-radius: 50%;
+      background: rgba(247,201,104,.09);
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border-radius: 15px;
+      color: #171207;
+      font-size: 23px;
+      background: linear-gradient(145deg, #ffe6a2, #e5ac3d);
+      box-shadow: 0 5px 24px rgba(247,201,104,.18);
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+
+    .community-badge {
+      display: table;
+      margin: 0 auto 18px;
+      padding: 9px 13px;
+      border: 1px solid rgba(247,201,104,.24);
+      border-radius: 30px;
+      color: var(--gold-light);
+      background: rgba(247,201,104,.07);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    h1 {
+      position: relative;
+      margin-bottom: 14px;
+      text-align: center;
+      font-size: clamp(30px, 8vw, 41px);
+      line-height: 1.14;
+      font-weight: 900;
+      letter-spacing: -.8px;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold);
+    }
+
+    .intro {
+      max-width: 365px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .feature-box {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      flex-shrink: 0;
+      border-radius: 11px;
+      color: var(--gold-light);
+      background: rgba(247,201,104,.10);
+      font-size: 17px;
+    }
+
+    .feature-text strong {
+      display: block;
+      margin: 2px 0 4px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .feature-text p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .join-heading {
+      margin: 23px 0 13px;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .join-btn {
+      min-height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 13px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      color: #15110a;
+      background: linear-gradient(100deg, #f3bf54, #ffe6a0);
+      box-shadow: 0 8px 26px rgba(247,201,104,.16);
+    }
+
+    .secondary {
+      margin-top: 11px;
+      border: 1px solid rgba(247,201,104,.36);
+      color: var(--gold-light);
+      background: rgba(247,201,104,.05);
+    }
+
+    .telegram-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .trust-note {
+      margin-top: 15px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: #8290a5;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .loader {
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #050b16;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-inner {
+      text-align: center;
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 13px;
+      border: 3px solid rgba(247,201,104,.15);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    .loader p {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 380px) {
+      body { padding: 12px; }
+      .card { padding: 25px 17px 20px; }
+      h1 { font-size: 31px; }
+      .intro { font-size: 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loader is only an overlay; main content exists underneath -->
+  <div class="loader" id="pageLoader" aria-label="Loading">
+    <div class="loader-inner">
+      <div class="spinner"></div>
+      <p>PREPARING YOUR EXPERIENCE...</p>
+    </div>
+  </div>
+
+  <main class="page">
+    <div class="top-line"></div>
+
+    <section class="card">
+
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">✦</div>
+        <div>
+          <div class="brand-name">NITIN  LEARNERS</div>
+          <div class="brand-sub">LEARN • DISCOVER • GROW</div>
+        </div>
+      </div>
+
+      <div class="community-badge">
+        ✦ YOUR LEARNING JOURNEY STARTS HERE
+      </div>
+
+      <h1>
+        Learn Something
+        <span>New Every Day.</span>
+      </h1>
+
+      <p class="intro">
+        Explore useful educational information, helpful tips and
+        learning resources in one convenient community.
+        Take the next step in your learning journey with us.
+      </p>
+
+      <div class="feature-box">
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">📚</div>
+          <div class="feature-text">
+            <strong>Educational Information</strong>
+            <p>Explore informative content designed to support your learning.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">💡</div>
+          <div class="feature-text">
+            <strong>Helpful Tips & Resources</strong>
+            <p>Discover practical tips and resources for everyday learning.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🔔</div>
+          <div class="feature-text">
+            <strong>Community Updates</strong>
+            <p>Access new educational posts and updates through Telegram.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="join-heading">
+        Ready to explore? Join our Telegram community.
+      </p>
+
+      <a
+        class="join-btn primary"
+        href="https://t.me/+3QTIn_SEQV1kMzQ1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="telegram-icon" viewBox="0 0 24 24"
+             fill="currentColor" aria-hidden="true">
+          <path d="M21.8 3.2 18.5 20c-.25 1.18-.9 1.47-1.82.92l-5.03-3.71-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.73 13.43.76 11.87c-1.08-.34-1.1-1.08.23-1.61L20.43 2.7c.9-.33 1.68.22 1.37.5Z"/>
+        </svg>
+        JOIN TELEGRAM COMMUNITY
+      </a>
+
+      <a
+        class="join-btn secondary"
+        href="https://t.me/+3QTIn_SEQV1kMzQ1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore Learning Updates ↗
+      </a>
+
+      <p class="trust-note">
+        Join through Telegram. Availability of posts and access
+        may depend on the community's settings.
+      </p>
+
+    </section>
+
+    <footer class="footer">
+      <p>LEARN. DISCOVER. GROW.</p>
+      <p>
+        Educational and informational content only.
+        No specific results or outcomes are guaranteed.
+      </p>
+      <p>© <span id="currentYear">2026</span> Learning Community</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      // Never let a loader failure hide the actual landing page.
+      function hideLoader() {
+        var loader = document.getElementById("pageLoader");
+        if (loader) loader.classList.add("hidden");
+      }
+
+      // Hide after the page has loaded, with a safety fallback.
+      if (document.readyState === "complete") {
+        hideLoader();
+      } else {
+        window.addEventListener("load", hideLoader, { once: true });
+      }
+
+      window.setTimeout(hideLoader, 1800);
+
+      var year = document.getElementById("currentYear");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
