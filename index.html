@@ -156,11 +156,16 @@
 
     .intro {
       max-width: 365px;
-      margin: 0 auto 24px;
+      margin: 0 auto 18px;
       color: var(--muted);
       text-align: center;
       font-size: 14px;
       line-height: 1.8;
+    }
+
+    /* Naye Button ka CSS */
+    .intro-btn {
+      margin-bottom: 24px;
     }
 
     .feature-box {
@@ -330,7 +335,7 @@
 
 <body>
 
-  <!-- Loader is only an overlay; main content exists underneath -->
+  <!-- Loader Overlay -->
   <div class="loader" id="pageLoader" aria-label="Loading">
     <div class="loader-inner">
       <div class="spinner"></div>
@@ -346,7 +351,7 @@
       <div class="brand">
         <div class="brand-icon" aria-hidden="true">✦</div>
         <div>
-          <div class="brand-name">NITIN  LEARNERS</div>
+          <div class="brand-name">NITIN LEARNERS</div>
           <div class="brand-sub">LEARN • DISCOVER • GROW</div>
         </div>
       </div>
@@ -365,6 +370,19 @@
         learning resources in one convenient community.
         Take the next step in your learning journey with us.
       </p>
+
+      <!-- NAYA BUTTON YAHAN ADD KIYA GAYA HAI -->
+      <a
+        class="join-btn primary intro-btn"
+        href="https://t.me/+3QTIn_SEQV1kMzQ1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.8 3.2 18.5 20c-.25 1.18-.9 1.47-1.82.92l-5.03-3.71-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.73 13.43.76 11.87c-1.08-.34-1.1-1.08.23-1.61L20.43 2.7c.9-.33 1.68.22 1.37.5Z"/>
+        </svg>
+       JOIN TELEGRAM COMMUNITY
+      </a>
 
       <div class="feature-box">
 
@@ -439,13 +457,11 @@
 
   <script>
     (function () {
-      // Never let a loader failure hide the actual landing page.
       function hideLoader() {
         var loader = document.getElementById("pageLoader");
         if (loader) loader.classList.add("hidden");
       }
 
-      // Hide after the page has loaded, with a safety fallback.
       if (document.readyState === "complete") {
         hideLoader();
       } else {
